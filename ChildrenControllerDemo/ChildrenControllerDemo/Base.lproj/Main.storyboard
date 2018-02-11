@@ -1,24 +1,69 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" systemVersion="17A277" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="zcY-Wr-jl4">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <!--Navigation Controller-->
+        <scene sceneID="w5c-l0-huG">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                <navigationController id="zcY-Wr-jl4" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="nJX-P4-2U8">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="4Ii-j9-xRQ" kind="relationship" relationship="rootViewController" id="b5I-gd-mBa"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="v4n-TC-3Qp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-794" y="98"/>
+        </scene>
+        <!--网易新闻-->
+        <scene sceneID="tcX-eE-jP0">
+            <objects>
+                <viewController id="4Ii-j9-xRQ" customClass="NewsViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="DVS-LP-rCj">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M0J-uv-gPx">
+                                <rect key="frame" x="0.0" y="64" width="375" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="Kbp-8k-2eV"/>
+                                </constraints>
+                            </scrollView>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="syh-wo-eG5">
+                                <rect key="frame" x="0.0" y="108" width="375" height="559"/>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="ADY-gS-XIW" firstAttribute="trailing" secondItem="syh-wo-eG5" secondAttribute="trailing" id="7be-hy-dkp"/>
+                            <constraint firstItem="syh-wo-eG5" firstAttribute="top" secondItem="M0J-uv-gPx" secondAttribute="bottom" id="8BE-6g-o1E"/>
+                            <constraint firstItem="M0J-uv-gPx" firstAttribute="leading" secondItem="ADY-gS-XIW" secondAttribute="leading" id="flx-CD-DVI"/>
+                            <constraint firstItem="M0J-uv-gPx" firstAttribute="top" secondItem="ADY-gS-XIW" secondAttribute="top" id="q5p-pz-EF2"/>
+                            <constraint firstItem="syh-wo-eG5" firstAttribute="leading" secondItem="ADY-gS-XIW" secondAttribute="leading" id="t7h-1n-25A"/>
+                            <constraint firstItem="ADY-gS-XIW" firstAttribute="trailing" secondItem="M0J-uv-gPx" secondAttribute="trailing" id="w7G-wI-avc"/>
+                            <constraint firstItem="ADY-gS-XIW" firstAttribute="bottom" secondItem="syh-wo-eG5" secondAttribute="bottom" id="y6P-fi-Rkt"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="ADY-gS-XIW"/>
                     </view>
+                    <navigationItem key="navigationItem" title="网易新闻" id="6SY-5Q-wRr"/>
+                    <connections>
+                        <outlet property="contentScrollView" destination="syh-wo-eG5" id="FMH-8p-9L6"/>
+                        <outlet property="topScrollView" destination="M0J-uv-gPx" id="nR0-2E-LQO"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hpk-1U-3v9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="-17" y="98"/>
         </scene>
     </scenes>
 </document>

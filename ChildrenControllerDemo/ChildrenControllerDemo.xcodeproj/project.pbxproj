@@ -7,14 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		18187B85203086CF00143078 /* TopViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18187B84203086CF00143078 /* TopViewController.m */; };
+		18187B88203086E100143078 /* HotViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18187B87203086E100143078 /* HotViewController.m */; };
+		18187B8B2030870300143078 /* VedioViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18187B8A2030870300143078 /* VedioViewController.m */; };
+		18187B8E2030873800143078 /* SocietyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18187B8D2030873800143078 /* SocietyViewController.m */; };
+		18187B912030877C00143078 /* SubscribeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18187B902030877C00143078 /* SubscribeViewController.m */; };
+		18187B942030879600143078 /* ScienceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18187B932030879600143078 /* ScienceViewController.m */; };
 		181CE057202E0D980033A54E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 181CE056202E0D980033A54E /* AppDelegate.m */; };
-		181CE05A202E0D980033A54E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 181CE059202E0D980033A54E /* ViewController.m */; };
 		181CE05D202E0D980033A54E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 181CE05B202E0D980033A54E /* Main.storyboard */; };
 		181CE05F202E0D980033A54E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 181CE05E202E0D980033A54E /* Assets.xcassets */; };
 		181CE062202E0D980033A54E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 181CE060202E0D980033A54E /* LaunchScreen.storyboard */; };
 		181CE065202E0D980033A54E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 181CE064202E0D980033A54E /* main.m */; };
 		181CE06F202E0D980033A54E /* ChildrenControllerDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 181CE06E202E0D980033A54E /* ChildrenControllerDemoTests.m */; };
 		181CE07A202E0D980033A54E /* ChildrenControllerDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 181CE079202E0D980033A54E /* ChildrenControllerDemoUITests.m */; };
+		181CE089202E14FE0033A54E /* NewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 181CE088202E14FE0033A54E /* NewsViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,11 +41,21 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		18187B83203086CF00143078 /* TopViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TopViewController.h; sourceTree = "<group>"; };
+		18187B84203086CF00143078 /* TopViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TopViewController.m; sourceTree = "<group>"; };
+		18187B86203086E100143078 /* HotViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HotViewController.h; sourceTree = "<group>"; };
+		18187B87203086E100143078 /* HotViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HotViewController.m; sourceTree = "<group>"; };
+		18187B892030870300143078 /* VedioViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VedioViewController.h; sourceTree = "<group>"; };
+		18187B8A2030870300143078 /* VedioViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VedioViewController.m; sourceTree = "<group>"; };
+		18187B8C2030873800143078 /* SocietyViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SocietyViewController.h; sourceTree = "<group>"; };
+		18187B8D2030873800143078 /* SocietyViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SocietyViewController.m; sourceTree = "<group>"; };
+		18187B8F2030877C00143078 /* SubscribeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SubscribeViewController.h; sourceTree = "<group>"; };
+		18187B902030877C00143078 /* SubscribeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SubscribeViewController.m; sourceTree = "<group>"; };
+		18187B922030879600143078 /* ScienceViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ScienceViewController.h; sourceTree = "<group>"; };
+		18187B932030879600143078 /* ScienceViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ScienceViewController.m; sourceTree = "<group>"; };
 		181CE052202E0D980033A54E /* ChildrenControllerDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChildrenControllerDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		181CE055202E0D980033A54E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		181CE056202E0D980033A54E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		181CE058202E0D980033A54E /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		181CE059202E0D980033A54E /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		181CE05C202E0D980033A54E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		181CE05E202E0D980033A54E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		181CE061202E0D980033A54E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -51,6 +67,8 @@
 		181CE075202E0D980033A54E /* ChildrenControllerDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ChildrenControllerDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		181CE079202E0D980033A54E /* ChildrenControllerDemoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChildrenControllerDemoUITests.m; sourceTree = "<group>"; };
 		181CE07B202E0D980033A54E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		181CE087202E14FE0033A54E /* NewsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewsViewController.h; sourceTree = "<group>"; };
+		181CE088202E14FE0033A54E /* NewsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NewsViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,13 +121,25 @@
 			children = (
 				181CE055202E0D980033A54E /* AppDelegate.h */,
 				181CE056202E0D980033A54E /* AppDelegate.m */,
-				181CE058202E0D980033A54E /* ViewController.h */,
-				181CE059202E0D980033A54E /* ViewController.m */,
 				181CE05B202E0D980033A54E /* Main.storyboard */,
+				181CE087202E14FE0033A54E /* NewsViewController.h */,
+				181CE088202E14FE0033A54E /* NewsViewController.m */,
 				181CE05E202E0D980033A54E /* Assets.xcassets */,
 				181CE060202E0D980033A54E /* LaunchScreen.storyboard */,
 				181CE063202E0D980033A54E /* Info.plist */,
 				181CE064202E0D980033A54E /* main.m */,
+				18187B83203086CF00143078 /* TopViewController.h */,
+				18187B84203086CF00143078 /* TopViewController.m */,
+				18187B86203086E100143078 /* HotViewController.h */,
+				18187B87203086E100143078 /* HotViewController.m */,
+				18187B892030870300143078 /* VedioViewController.h */,
+				18187B8A2030870300143078 /* VedioViewController.m */,
+				18187B8C2030873800143078 /* SocietyViewController.h */,
+				18187B8D2030873800143078 /* SocietyViewController.m */,
+				18187B8F2030877C00143078 /* SubscribeViewController.h */,
+				18187B902030877C00143078 /* SubscribeViewController.m */,
+				18187B922030879600143078 /* ScienceViewController.h */,
+				18187B932030879600143078 /* ScienceViewController.m */,
 			);
 			path = ChildrenControllerDemo;
 			sourceTree = "<group>";
@@ -265,9 +295,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				181CE05A202E0D980033A54E /* ViewController.m in Sources */,
+				18187B85203086CF00143078 /* TopViewController.m in Sources */,
 				181CE065202E0D980033A54E /* main.m in Sources */,
+				18187B88203086E100143078 /* HotViewController.m in Sources */,
 				181CE057202E0D980033A54E /* AppDelegate.m in Sources */,
+				18187B942030879600143078 /* ScienceViewController.m in Sources */,
+				18187B8B2030870300143078 /* VedioViewController.m in Sources */,
+				18187B912030877C00143078 /* SubscribeViewController.m in Sources */,
+				18187B8E2030873800143078 /* SocietyViewController.m in Sources */,
+				181CE089202E14FE0033A54E /* NewsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
