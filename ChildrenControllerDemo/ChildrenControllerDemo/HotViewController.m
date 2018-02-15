@@ -8,6 +8,9 @@
 
 #import "HotViewController.h"
 
+#define RQScreenWidth [UIScreen mainScreen].bounds.size.width
+#define RQScreenHeight [UIScreen mainScreen].bounds.size.height
+
 @interface HotViewController ()
 
 @end
@@ -17,6 +20,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    self.view.backgroundColor = [UIColor greenColor];
+    self.view.frame = CGRectMake(RQScreenWidth * 1, 0, RQScreenWidth, RQScreenHeight - 64);
+}
+
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    NSLog(@"%s",__func__);
 }
 
 - (void)didReceiveMemoryWarning {

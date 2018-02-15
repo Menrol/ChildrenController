@@ -8,6 +8,9 @@
 
 #import "SocietyViewController.h"
 
+#define RQScreenWidth [UIScreen mainScreen].bounds.size.width
+#define RQScreenHeight [UIScreen mainScreen].bounds.size.height
+
 @interface SocietyViewController ()
 
 @end
@@ -17,6 +20,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    self.view.backgroundColor = [UIColor yellowColor];
+    self.view.frame = CGRectMake(RQScreenWidth * 3, 0, RQScreenWidth, RQScreenHeight - 64);
 }
 
 - (void)didReceiveMemoryWarning {

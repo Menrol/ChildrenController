@@ -8,6 +8,9 @@
 
 #import "VedioViewController.h"
 
+#define RQScreenWidth [UIScreen mainScreen].bounds.size.width
+#define RQScreenHeight [UIScreen mainScreen].bounds.size.height
+
 @interface VedioViewController ()
 
 @end
@@ -17,6 +20,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    self.view.backgroundColor = [UIColor grayColor];
+    self.view.frame = CGRectMake(RQScreenWidth * 2, 0, RQScreenWidth, RQScreenHeight - 64);
 }
 
 - (void)didReceiveMemoryWarning {

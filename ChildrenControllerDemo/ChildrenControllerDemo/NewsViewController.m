@@ -22,6 +22,8 @@ static CGFloat const titleWidth = 100;
 @interface NewsViewController ()
 @property (weak, nonatomic) IBOutlet UIScrollView *topScrollView;
 @property (weak, nonatomic) IBOutlet UIScrollView *contentScrollView;
+/** 之前选中的按钮 */
+@property(nonatomic, strong) UILabel *preLabel;
 
 @end
 
@@ -56,17 +58,42 @@ static CGFloat const titleWidth = 100;
         UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(clickTitleWithTap:)];
         [label addGestureRecognizer:tapGesture];
         
+        label.tag = i;
+        
         [self.topScrollView addSubview:label];
     }
 }
 
+- (void)scrollToPointWithTap:(UITapGestureRecognizer *)tap {
+    NSInteger index = tap.view.tag;
+    
+    self.contentScrollView.contentOffset = CGPointMake(index * self.contentScrollView.bounds.size.width, 0);
+    
+    UIViewController *vc = self.childViewControllers[index];
+    [self.contentScrollView addSubview:vc.view];
+}
+
 - (void)clickTitleWithTap:(UITapGestureRecognizer *)tap {
-    NSLog(@"%s",__func__);
+    // 选中按钮
+    [self selectTitle:tap];
+    
+    // 滚动到相应位置
+    [self scrollToPointWithTap:tap];
+}
+
+- (void)selectTitle:(UITapGestureRecognizer *)tap {
+    _preLabel.highlighted = NO;
+    UILabel *label = (UILabel *)tap.view;
+    label.highlighted = YES;
+    _preLabel = label;
 }
 
 - (void)setupScrollview {
     self.topScrollView.contentSize = CGSizeMake(self.childViewControllers.count * titleWidth, 0);
     self.topScrollView.showsHorizontalScrollIndicator = NO;
+    
+    self.contentScrollView.contentSize = CGSizeMake(RQScreenWidth * self.childViewControllers.count, 0);
+    self.contentScrollView.pagingEnabled = YES;
 }
 
 - (void)addChildViewControllers {

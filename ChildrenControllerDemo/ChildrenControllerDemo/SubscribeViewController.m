@@ -8,6 +8,9 @@
 
 #import "SubscribeViewController.h"
 
+#define RQScreenWidth [UIScreen mainScreen].bounds.size.width
+#define RQScreenHeight [UIScreen mainScreen].bounds.size.height
+
 @interface SubscribeViewController ()
 
 @end
@@ -17,6 +20,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    self.view.backgroundColor = [UIColor blueColor];
+    self.view.frame = CGRectMake(RQScreenWidth * 4, 0, RQScreenWidth, RQScreenHeight - 64);
 }
 
 - (void)didReceiveMemoryWarning {
