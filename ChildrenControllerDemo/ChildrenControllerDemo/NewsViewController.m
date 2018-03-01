@@ -19,16 +19,20 @@
 
 static CGFloat const titleWidth = 100;
 
-@interface NewsViewController ()
+@interface NewsViewController ()<UIScrollViewDelegate>
 @property (weak, nonatomic) IBOutlet UIScrollView *topScrollView;
 @property (weak, nonatomic) IBOutlet UIScrollView *contentScrollView;
 /** 之前选中的按钮 */
 @property(nonatomic, strong) UILabel *preLabel;
+/** 标题数组 */
+@property(nonatomic, strong) NSMutableArray *titileArray;
+
 
 @end
 
 @implementation NewsViewController
 
+#pragma mark - 视图生命周期
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
@@ -50,9 +54,8 @@ static CGFloat const titleWidth = 100;
         
         UIViewController *vc = self.childViewControllers[i];
         label.text = vc.title;
-        
+        label.highlightedTextColor = [UIColor redColor];
         label.textAlignment = NSTextAlignmentCenter;
-        
         label.userInteractionEnabled = YES;
         
         UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(clickTitleWithTap:)];
@@ -60,12 +63,18 @@ static CGFloat const titleWidth = 100;
         
         label.tag = i;
         
+        if (i == 0) {
+            [self clickTitleWithLabel:label];
+        }
+        
+        [self.titileArray addObject:label];
+        
         [self.topScrollView addSubview:label];
     }
 }
 
-- (void)scrollToPointWithTap:(UITapGestureRecognizer *)tap {
-    NSInteger index = tap.view.tag;
+- (void)scrollToPointWithLabel:(UILabel *)label {
+    NSInteger index = label.tag;
     
     self.contentScrollView.contentOffset = CGPointMake(index * self.contentScrollView.bounds.size.width, 0);
     
@@ -74,18 +83,86 @@ static CGFloat const titleWidth = 100;
 }
 
 - (void)clickTitleWithTap:(UITapGestureRecognizer *)tap {
-    // 选中按钮
-    [self selectTitle:tap];
+    // 获取View
+    UILabel *label = (UILabel *)tap.view;
     
-    // 滚动到相应位置
-    [self scrollToPointWithTap:tap];
+    // 选中按钮
+    [self clickTitleWithLabel:label];
 }
 
-- (void)selectTitle:(UITapGestureRecognizer *)tap {
+- (void)clickTitleWithLabel:(UILabel *)label {
+    // 选中按钮
+    [self selectTitleWithLabel:label];
+    
+    // contentView滚动到相应位置
+    [self scrollToPointWithLabel:label];
+    
+    // titleView滚动到相应位置
+    [self scrollTitleWithLabel:label];
+}
+
+- (void)selectTitleWithLabel:(UILabel *)label {
     _preLabel.highlighted = NO;
-    UILabel *label = (UILabel *)tap.view;
+    _preLabel.transform = CGAffineTransformIdentity;
+    _preLabel.textColor = [UIColor blackColor];
     label.highlighted = YES;
+    label.transform = CGAffineTransformMakeScale(1.3, 1.3);
     _preLabel = label;
+}
+
+- (void)scrollTitleWithLabel:(UILabel *)label {
+    CGFloat offsetX = label.center.x - RQScreenWidth * 0.5;
+    CGFloat maxOffsetX = self.topScrollView.contentSize.width - RQScreenWidth;
+    if (offsetX < 0) {
+        offsetX = 0;
+    }else if(offsetX > maxOffsetX) {
+        offsetX = maxOffsetX;
+    }
+    [self.topScrollView setContentOffset:CGPointMake(offsetX, 0) animated:YES];
+}
+
+- (CGFloat)getPage {
+    return self.contentScrollView.contentOffset.x / self.contentScrollView.bounds.size.width;
+}
+
+#pragma mark - 懒加载控件
+- (NSMutableArray *)titileArray {
+    if (!_titileArray) {
+        _titileArray = [NSMutableArray array];
+    }
+    
+    return _titileArray;
+}
+
+#pragma mark - UIScrollViewDelegate
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
+    NSInteger index = [self getPage];
+    
+    // 获取Label
+    UILabel *label = self.titileArray[index];
+    // 选中Label
+    [self clickTitleWithLabel:label];
+}
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    CGFloat page = [self getPage];
+    NSInteger leftIndex = [self getPage];
+    NSInteger rightIndex = leftIndex + 1;
+    
+    if (rightIndex == _titileArray.count) {
+        return;
+    }
+    
+    CGFloat rightScale = page - leftIndex;
+    CGFloat leftScale = 1 - rightScale;
+    
+    UILabel *leftLabel = _titileArray[leftIndex];
+    UILabel *rightLabel = _titileArray[rightIndex];
+    
+    leftLabel.transform = CGAffineTransformMakeScale(leftScale * 0.3 + 1, leftScale * 0.3 + 1);
+    leftLabel.textColor = [UIColor colorWithRed:leftScale green:0 blue:0 alpha:1.0];
+    rightLabel.transform = CGAffineTransformMakeScale(rightScale * 0.3 + 1, rightScale * 0.3 + 1);
+    rightLabel.textColor = [UIColor colorWithRed:rightScale green:0 blue:0 alpha:1.0];
 }
 
 - (void)setupScrollview {
@@ -94,6 +171,7 @@ static CGFloat const titleWidth = 100;
     
     self.contentScrollView.contentSize = CGSizeMake(RQScreenWidth * self.childViewControllers.count, 0);
     self.contentScrollView.pagingEnabled = YES;
+    self.contentScrollView.delegate = self;
 }
 
 - (void)addChildViewControllers {
